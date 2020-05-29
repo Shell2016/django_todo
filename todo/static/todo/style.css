@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; 
+    padding: 20px;      
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+input, button {
+    font-family: inherit;
+}
+
+.container {
+    display: flex;
+    background-color: grey;
+    min-height: 70vh;
+}
+
+.todo {    
+    width: 500px;
+    background-color: rgb(156, 194, 125);
+    margin: auto;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.todo p {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.todo-form {    
+    display: flex;
+}
+
+.todo-input {
+    padding: 10px; 
+    font-size: 16px;
+    background-color: rgba(238, 238, 238, 0.726);
+    border: none;
+    border-radius: 3px;    
+    flex-grow: 1;
+}
+
+.todo-input:hover {
+    background-color: #eee;
+}
+
+.todo-input:focus {
+    outline: 2px solid darkcyan;
+    outline-style: solid;    
+    background-color: #eee;
+}
+
+.todo-input::placeholder {
+    font-weight: bold;
+}
+
+.todo-submit {
+    padding: 10px;
+    font-size: 16px;
+    border: none;   
+}

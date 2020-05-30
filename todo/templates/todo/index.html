@@ -17,14 +17,14 @@
                 {{ form.text }}                
                 <button type='submit' class='todo-submit'>Add</button>
             </form>
-            <a href="" class='del-btn'>Delete completed</a>
-            <a href="" class='del-btn'>Delete all</a>  
+            <a href="{% url 'delcompleted' %}" class='del-btn'>Delete completed</a>
+            <a href="{% url 'delall' %}" class='del-btn'>Delete all</a>  
             <ul class="todo-list">
                 {% for todo in todo_list %}
                     {% if todo.completed %}
-                    <li class="todo-item todo-item--completed">{{ todo.text }}</li>
+                    <li class="todo-item todo-item--completed"><a>{{ todo.text }}</a></li>
                     {% else %}
-                    <li class="todo-item"><a>{{ todo.text }}</a></li>
+                    <li class="todo-item"><a href="{% url 'complete' todo.pk %}">{{ todo.text }}</a></li>
                     {% endif %}                
                 {% endfor %}               
             </ul>

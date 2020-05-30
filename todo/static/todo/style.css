@@ -19,6 +19,7 @@ input, button {
     font-family: inherit;
 }
 
+
 .container {
     display: flex;   
     min-height: 70vh;
@@ -28,6 +29,7 @@ input, button {
     width: 500px;
     background-color: rgb(156, 194, 125);
     margin: auto;
+    margin-top: 150px;
     border-radius: 3px;
     padding: 20px;
 }
@@ -64,6 +66,7 @@ input, button {
 .todo-input::placeholder {
     font-weight: bold;
 }
+
 
 .todo-submit {
     padding: 10px;
@@ -113,10 +116,17 @@ input, button {
 }
 
 .todo-item {
-    background-color: #eee;
-    padding: 10px;
-    padding-left: 10px;
+    background-color: #eee;    
     border-radius: 3px;    
+    color: black;      
+}
+
+.todo-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px; 
+    padding-left: 15px;   
 }
 
 .todo-item:hover {

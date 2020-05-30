@@ -19,3 +19,20 @@ def addtodo(request):
         new_todo = Todo(text=request.POST['text'])
         new_todo.save()
     return redirect('index')
+
+
+def complete(request, todo_pk):
+    todo = Todo.objects.get(pk=todo_pk)
+    todo.completed = True
+    todo.save()
+    return redirect('index')
+
+
+def delcompleted(request):
+    Todo.objects.filter(completed=True).delete()
+    return redirect('index')
+
+
+def delall(request):
+    Todo.objects.all().delete()
+    return redirect('index')

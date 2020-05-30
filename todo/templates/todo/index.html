@@ -12,16 +12,21 @@
     <div class="container">
          <div class="todo">
             <p>What do you want to do today?</p>
-            <form action="" method="post" class='todo-form'>
-                <input type='text' class='todo-input' placeholder='Enter todo here...'>
+            <form action="{% url 'add' %}" method="post" class='todo-form'>
+                {% csrf_token %}
+                {{ form.text }}                
                 <button type='submit' class='todo-submit'>Add</button>
             </form>
-            <a href=""><button class="del-btn">Delete completed</button></a>
-            <a href=""><button class="del-btn">Delete all</button></a>  
-            <ul class="todo_list">
-                <li class="todo_item">Todo1</li>
-                <li class="todo_item">Todo2</li>
-                <li class="todo_item">Todo3</li>
+            <a href="" class='del-btn'>Delete completed</a>
+            <a href="" class='del-btn'>Delete all</a>  
+            <ul class="todo-list">
+                {% for todo in todo_list %}
+                    {% if todo.completed %}
+                    <li class="todo-item todo-item--completed">{{ todo.text }}</li>
+                    {% else %}
+                    <li class="todo-item"><a>{{ todo.text }}</a></li>
+                    {% endif %}                
+                {% endfor %}               
             </ul>
         </div>
     </div>

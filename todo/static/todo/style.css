@@ -4,7 +4,9 @@
 
 body {
     font-family: 'Montserrat', sans-serif; 
-    padding: 20px;      
+    padding: 20px; 
+    min-width: 540px;    
+    background-color: #ccc; 
 }
 
 ul {
@@ -18,8 +20,7 @@ input, button {
 }
 
 .container {
-    display: flex;
-    background-color: grey;
+    display: flex;   
     min-height: 70vh;
 }
 
@@ -39,6 +40,7 @@ input, button {
 
 .todo-form {    
     display: flex;
+    margin-bottom: 10px;
 }
 
 .todo-input {
@@ -47,16 +49,15 @@ input, button {
     background-color: rgba(238, 238, 238, 0.726);
     border: none;
     border-radius: 3px;    
-    flex-grow: 1;
+    flex-grow: 1;   
+    transition: background-color 0.3s ease;   
 }
 
 .todo-input:hover {
     background-color: #eee;
 }
 
-.todo-input:focus {
-    outline: 2px solid darkcyan;
-    outline-style: solid;    
+.todo-input:focus {    
     background-color: #eee;
 }
 
@@ -68,4 +69,70 @@ input, button {
     padding: 10px;
     font-size: 16px;
     border: none;   
+    text-transform: uppercase;
+    background-color: dimgrey;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.todo-submit:hover {
+    background-color: grey;
+}
+
+.todo-submit:active, .todo-submit:focus {
+    background-color: #444;    
+}
+
+.del-btn {
+    background: rgb(106, 89, 199);
+    border-radius: 3px;
+    color: #fff;    ;
+    font-weight: bold;    
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 12px;
+    display: inline-block;
+    text-decoration: none; 
+    transition: background-color 0.2s ease; 
+}
+
+.del-btn:hover {
+    background-color: mediumslateblue;
+}
+
+.del-btn:active {
+    background: rgb(99, 77, 226);
+}
+
+.todo-list {
+    margin-top: 10px;
+    display: grid;
+    row-gap: 5px;
+}
+
+.todo-item {
+    background-color: #eee;
+    padding: 10px;
+    padding-left: 10px;
+    border-radius: 3px;    
+}
+
+.todo-item:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.todo-item--completed {
+    background-color: #ccc;
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+.todo-item--completed:hover {
+    background-color: #ccc;
+    text-decoration: line-through;
+    cursor: auto;
 }

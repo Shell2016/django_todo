@@ -8,4 +8,5 @@ urlpatterns = [
     path('complete/<int:todo_pk>/', views.complete, name='complete'),
     path('delcompleted/', views.delcompleted, name='delcompleted'),
     path('delall/', views.delall, name='delall'),
+    path('register/', views.register, name='register'),
 ]

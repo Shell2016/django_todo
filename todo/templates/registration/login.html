@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO LOGIN</title>
+</head>
+<body>
+    <h1>Логин</h1>
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <p>
+             <label>Имя: {{ form.username }}</label>
+        </p>
+        <p>
+            <label>Пароль: {{ form.password}}</label>
+        </p>
+        
+        
+        <input type="submit" value="Login">
+        {% comment %} <input type="hidden" name="next" value="{{ next }}"> {% endcomment %}
+
+    </form>
+
+</body>
+</html>

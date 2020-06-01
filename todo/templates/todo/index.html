@@ -9,49 +9,74 @@
     <title>TODOv.01</title>
 </head>
 <body>
-    <div class="container">
-        {% if not user.is_authenticated %}
-            <div class="login-section">
-                <h1 class="login-required">Please log in to use this app! </h1>
-                <ul class="login-menu">
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Sign Up</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                </ul>                
-            </div>
-                   
-        {% else %}
+    <header>
+        <div class="container">           
 
-            <div class="login-section">               
-                <ul class="login-menu">
-                    <li><a href="{% url 'login' %}">Login to another account</a></li>                    
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                </ul>                
-            </div>    
-           
+            {% if not user.is_authenticated %}
 
-            <div class="todo">            
-                <p>What do you want to do today, {{ user.username }}?</p>                    
-                <form action="{% url 'add' %}" method="post" class='todo-form'>
-                    {% csrf_token %}
-                    {{ form.text }}                
-                    <button type='submit' class='todo-submit'>Add</button>
-                </form>
-                <a href="{% url 'delcompleted' %}" class='del-btn'>Delete completed</a>
-                <a href="{% url 'delall' %}" class='del-btn'>Delete all</a>  
-                <ul class="todo-list">
-                    {% for todo in todo_list %}
-                        {% if todo.completed %}
-                        <li class="todo-item todo-item--completed"><a>{{ todo.text }}</a></li>
-                        {% else %}
-                        <li class="todo-item"><a href="{% url 'complete' todo.pk %}">{{ todo.text }}</a></li>
-                        {% endif %}                
-                    {% endfor %}               
-                </ul>
-            </div>
+                <div class="login-section">                
+                    <ul class="login-menu">
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Sign Up</a></li>                    
+                    </ul>    
 
-        {% endif %}    
-    </div>
-   
+                </div>           
+                    
+            {% else %}
+
+                <div class="login-section">               
+                    <ul class="login-menu">                                    
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    </ul>                
+                </div>
+
+            {% endif %}           
+
+        </div>
+    </header>
+
+    <main>    
+
+        <div class="container">
+
+            <div class="main-section-wrapper"> 
+
+                <div class="weather-app">
+                    <input type="text" placeholder="Enter city name...">   
+                    <span class="city-icon"></span>   
+                    <p class="city">Moscow</p>
+                    <p class="temp">20C</p>
+                    <p class="description">Windy</p>              
+                </div>          
+            
+                {% if user.is_authenticated %}
+                
+                    <div class="todo">            
+                        <p>What do you want to do today, {{ user.username }}?</p>                    
+                        <form action="{% url 'add' %}" method="post" class='todo-form'>
+                            {% csrf_token %}
+                            {{ form.text }}                
+                            <button type='submit' class='todo-submit'>Add</button>
+                        </form>
+                        <a href="{% url 'delcompleted' %}" class='del-btn'>Delete completed</a>
+                        <a href="{% url 'delall' %}" class='del-btn'>Delete all</a>  
+                        <ul class="todo-list">
+                            {% for todo in todo_list %}
+                                {% if todo.completed %}
+                                <li class="todo-item todo-item--completed"><a>{{ todo.text }}</a></li>
+                                {% else %}
+                                <li class="todo-item"><a href="{% url 'complete' todo.pk %}">{{ todo.text }}</a></li>
+                                {% endif %}                
+                            {% endfor %}               
+                        </ul>
+                    </div>
+
+                {% endif %}
+
+             </div>
+
+        </div>
+                
+    </main>
 </body>
 </html>

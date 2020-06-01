@@ -22,7 +22,7 @@ input, button {
 .container {
     /* display: flex;        */
     background-color: rgb(127, 165, 135);
-    width: 1640px;
+    /* width: 1640px; */
     padding: 20px;
     margin: 0 auto;
 }
@@ -31,6 +31,7 @@ input, button {
     display: flex;    
     background-color: #fff;
     font-weight: bold;
+   
 }
 
 .login-menu {
@@ -50,8 +51,9 @@ input, button {
 .todo {    
     width: 500px;
     background-color: rgb(156, 194, 125);
-    grid-column: 2/3;    
-    grid-row: 1/2;
+    /* grid-column: 2/3;    
+    grid-row: 1/2; */
+    justify-self: center;
     border-radius: 3px;
     padding: 20px;
 }
@@ -172,12 +174,20 @@ input, button {
 
 .main-section-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 400px 1fr 1fr;
+    gap: 20px;
 }
 
 .weather-app {
     background-color: lightblue;
     width: 350px;
     min-height: 150px;
-    grid-column: 3/4;
+    /* grid-column: 3/4; */
+    justify-self: center;
+}
+
+@media (max-width: 960px) {
+    .main-section-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
